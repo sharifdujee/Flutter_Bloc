@@ -7,6 +7,7 @@ import 'package:bloc_basic/bloc/switch_example/switch_bloc.dart';
 import 'package:bloc_basic/bloc/todo/to_do_bloc.dart';
 import 'package:bloc_basic/repository/favourite_repository.dart';
 import 'package:bloc_basic/ui/counter/counter_screen.dart';
+import 'package:bloc_basic/ui/error/home_screen.dart';
 import 'package:bloc_basic/ui/favourite_app/favourite_app_screen.dart';
 import 'package:bloc_basic/ui/image_picker/image_picker_screen.dart';
 import 'package:bloc_basic/ui/posts/posts_screen.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
 
         ),
-        home: const PostsScreen(),
+        home: const HomeScreen(),
       ),
     );
 

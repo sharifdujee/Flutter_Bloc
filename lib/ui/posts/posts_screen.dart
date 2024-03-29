@@ -2,9 +2,7 @@ import 'package:bloc_basic/bloc/posts/posts_bloc.dart';
 import 'package:bloc_basic/bloc/posts/posts_event.dart';
 import 'package:bloc_basic/bloc/posts/posts_state.dart';
 import 'package:bloc_basic/utils/enums.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PostsScreen extends StatefulWidget {
@@ -42,21 +40,62 @@ class _PostsScreenState extends State<PostsScreen> {
             case PostStatus.failure:
               return Center(child: Text(state.message.toString()));
             case PostStatus.success:
-              return ListView.builder(
-                  itemCount: state.postList.length,
-                  itemBuilder: (context, index) {
-                    final item = state.postList[index];
-                    return ListTile(
-                      leading: Text('ID is ${item.id.toString()}'),
-                      title: Row(
-                        children: [
-                          Expanded(child: Text('name is ${item.name.toString()}')),
-                          Expanded(child: Text('Email is ${item.email.toString()}')),
-                        ],
-                      ),
-                      subtitle: Text(item.body.toString()),
-                    );
-                  });
+              return Column(
+                children: [
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Search with email',
+                      border: OutlineInputBorder()
+
+                    ),
+                    onChanged: (filterKey){
+                      context.read<PostBloc>().add(SearchItem(filterKey));
+                    },
+
+                  ),
+                  Expanded(
+                    child: state.searchMessage.isNotEmpty? Center(child: Text(state.searchMessage.toString())): ListView.builder(
+                        itemCount:  state.tempPostList.isEmpty?state.postList.length : state.tempPostList.length,
+                        itemBuilder: (context, index) {
+                          if(state.tempPostList.isNotEmpty){
+                            final item = state.tempPostList[index];
+                            return Card(
+                              child: ListTile(
+                                leading: Text('ID is ${item.id.toString()}'),
+                                title: Row(
+                                  children: [
+                                    Expanded(child: Text('name is ${item.name.toString()}')),
+                                    Expanded(child: Text('Email is ${item.email.toString()}')),
+                                  ],
+                                ),
+                                subtitle: Text(item.body.toString()),
+                              ),
+                            );
+
+
+                          }
+                          else{
+                            final item = state.postList[index];
+                            return Card(
+                              child: ListTile(
+                                leading: Text('ID is ${item.id.toString()}'),
+                                title: Row(
+                                  children: [
+                                    Expanded(child: Text('name is ${item.name.toString()}')),
+                                    Expanded(child: Text('Email is ${item.email.toString()}')),
+                                  ],
+                                ),
+                                subtitle: Text(item.body.toString()),
+                              ),
+                            );
+
+                          }
+                         
+
+                        }),
+                  ),
+                ],
+              );
           }
         },
       ),
