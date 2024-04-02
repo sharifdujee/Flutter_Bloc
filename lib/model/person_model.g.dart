@@ -1,3 +1,4 @@
+/*
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'person_model.dart';
@@ -22,3 +23,4 @@ Map<String, dynamic> _$$PersonModelImplToJson(_$PersonModelImpl instance) =>
       'age': instance.age,
       'tv_show': instance.tvShow,
     };
+*/

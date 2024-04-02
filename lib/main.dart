@@ -1,4 +1,5 @@
 
+import 'package:bloc_basic/bloc/arithmatic/arithmetic_bloc.dart';
 import 'package:bloc_basic/bloc/favourite_app/favourite_app_bloc.dart';
 import 'package:bloc_basic/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_basic/bloc/posts/posts_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:bloc_basic/bloc/practice_counter/counter_bloc.dart';
 import 'package:bloc_basic/bloc/switch_example/switch_bloc.dart';
 import 'package:bloc_basic/bloc/todo/to_do_bloc.dart';
 import 'package:bloc_basic/repository/favourite_repository.dart';
+import 'package:bloc_basic/ui/arithmatic/arithmatic_screen.dart';
 import 'package:bloc_basic/ui/counter/counter_screen.dart';
 import 'package:bloc_basic/ui/error/home_screen.dart';
 import 'package:bloc_basic/ui/favourite_app/favourite_app_screen.dart';
@@ -37,6 +39,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_)=> ToDoBloc()),
         BlocProvider(create: (_)=> FavouriteBloc(FavouriteRepository())),
         BlocProvider(create: (_)=> PostBloc()),
+        BlocProvider(create: (_) => ArithmeticBloc())
 
         
       ],
@@ -49,7 +52,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
 
         ),
-        home: const HomeScreen(),
+        home: const ArithmeticScreen(),
       ),
     );
 
