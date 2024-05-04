@@ -15,6 +15,7 @@ class _MultiRolesAppsHomeScreenState extends State<MultiRolesAppsHomeScreen> {
   final ageController = TextEditingController();
   String email = '';
   String age = '';
+  String category = '';
   @override
 
   void initState() {
@@ -28,6 +29,8 @@ class _MultiRolesAppsHomeScreenState extends State<MultiRolesAppsHomeScreen> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     email = sharedPreferences.getString('email')??'';
     age = sharedPreferences.getString('age')??'';
+    category = sharedPreferences.getString('userType')??'';
+
     setState(() {
 
     });
@@ -65,6 +68,17 @@ class _MultiRolesAppsHomeScreenState extends State<MultiRolesAppsHomeScreen> {
               children: [
                 const Text('age'),
                 Text(age.toString()),
+
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Category'),
+                Text(category.toString()),
 
               ],
             ),

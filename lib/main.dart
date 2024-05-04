@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_roadmap/REST_APIs/rest_api_home_screen.dart';
 import 'package:flutter_roadmap/basics/calcultor_app/calculator_screen.dart';
 import 'package:flutter_roadmap/basics/calcultor_app/components/check_component.dart';
 import 'package:flutter_roadmap/basics/navigation/home_screen.dart';
@@ -12,9 +14,14 @@ import 'package:flutter_roadmap/basics/ui/text_read_more.dart';
 import 'package:flutter_roadmap/basics/ui/time_picker.dart';
 import 'package:flutter_roadmap/basics/ui/whatsapp_home.dart';
 import 'package:flutter_roadmap/basics/ui/whatsapp_ui.dart';
+import 'package:flutter_roadmap/firebase_options.dart';
 import 'package:flutter_roadmap/lottery_app/lottery_screen.dart';
 import 'package:flutter_roadmap/multi_role_apps/multi_role_home_screen.dart';
 import 'package:flutter_roadmap/multi_role_apps/splash_screen.dart';
+import 'package:flutter_roadmap/navigation_routing/navigation_home_screen.dart';
+import 'package:flutter_roadmap/navigation_routing/navigation_screen-two.dart';
+import 'package:flutter_roadmap/navigation_routing/navigation_screen_one.dart';
+import 'package:flutter_roadmap/navigation_routing/routes.dart';
 import 'package:flutter_roadmap/top_10_widgets/Columns_practice.dart';
 import 'package:flutter_roadmap/top_10_widgets/circular_avatar_practice.dart';
 import 'package:flutter_roadmap/top_10_widgets/container.dart';
@@ -23,7 +30,13 @@ import 'package:flutter_roadmap/top_10_widgets/practice_list_tile.dart';
 import 'package:flutter_roadmap/top_10_widgets/rich_text_practice.dart';
 import 'package:flutter_roadmap/top_10_widgets/text_form_field_practice.dart';
 
-void main() {
+import 'navigation_routing/route_names.dart';
+
+void main()  async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   // print('Hello World');
   /// Int Data Type
   /*int numberOne = 20;
@@ -74,9 +87,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      //home: const CreateHomeScreen(),
-      initialRoute: SplashScreen.routeName,
+      home: const RestApiHomeScreen(),
+      //initialRoute: RouteName.homeScreen,
+     //onGenerateRoute: Routes.generateRoute,
+     /* initialRoute: NavigationHomeScreen.routeName,
       routes: {
+        NavigationHomeScreen.routeName: (context) => const NavigationHomeScreen(),
         SplashScreen.routeName: (context) => const SplashScreen(),
         MultiRolesAppsHomeScreen.routeName: (context) => const MultiRolesAppsHomeScreen(),
         CheckComponentScreen.routeName: (context)=> const CheckComponentScreen(),
@@ -86,8 +102,12 @@ class MyApp extends StatelessWidget {
         WhatsAppsUIDesign.routeName: (context) => const WhatsAppsUIDesign(),
         CreateHomeScreen.routeName: (context) => const CreateHomeScreen(),
         ScreenTwo.routeName: (context) => const ScreenTwo(),
-        ScreenThree.routeName: (context) => const ScreenThree()
-      },
+        ScreenThree.routeName: (context) => const ScreenThree(),
+        NavigationScreenOne.routeName: (context) => const NavigationScreenOne(),
+        NavigationScreenOne.routeName: (context) => const NavigationScreenOne(),
+        NavigationScreenTwo.routeName: (context) => const NavigationScreenTwo()
+
+      },*/
     );
   }
 }
