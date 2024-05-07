@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_roadmap/REST_APIs/get_Api/drop_down_api.dart';
+import 'package:flutter_roadmap/REST_APIs/post_api/sign_up_screen.dart';
 import 'package:flutter_roadmap/REST_APIs/rest_api_home_screen.dart';
 import 'package:flutter_roadmap/basics/calcultor_app/calculator_screen.dart';
 import 'package:flutter_roadmap/basics/calcultor_app/components/check_component.dart';
@@ -14,7 +16,10 @@ import 'package:flutter_roadmap/basics/ui/text_read_more.dart';
 import 'package:flutter_roadmap/basics/ui/time_picker.dart';
 import 'package:flutter_roadmap/basics/ui/whatsapp_home.dart';
 import 'package:flutter_roadmap/basics/ui/whatsapp_ui.dart';
+import 'package:flutter_roadmap/coivd_tracker_apps/splash_screen.dart';
+import 'package:flutter_roadmap/firebase_core_concept/ui/firbase_splash_screen.dart';
 import 'package:flutter_roadmap/firebase_options.dart';
+
 import 'package:flutter_roadmap/lottery_app/lottery_screen.dart';
 import 'package:flutter_roadmap/multi_role_apps/multi_role_home_screen.dart';
 import 'package:flutter_roadmap/multi_role_apps/splash_screen.dart';
@@ -37,6 +42,7 @@ void main()  async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
+
   // print('Hello World');
   /// Int Data Type
   /*int numberOne = 20;
@@ -87,7 +93,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RestApiHomeScreen(),
+      home: const FireBaseSplashScreen(),
       //initialRoute: RouteName.homeScreen,
      //onGenerateRoute: Routes.generateRoute,
      /* initialRoute: NavigationHomeScreen.routeName,

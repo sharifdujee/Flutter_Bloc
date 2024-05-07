@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_roadmap/REST_APIs/get_Api/api_screen_four.dart';
 import 'package:flutter_roadmap/REST_APIs/components.dart';
 import 'package:http/http.dart' as http;
 class ApiScreenThree extends StatefulWidget {
@@ -57,7 +58,20 @@ class _ApiScreenThreeState extends State<ApiScreenThree> {
 
                 }
 
-          }))
+          })),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Center(
+              child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const APIScreenFour()));
+                  },
+                  child: const Text('Next')),
+            ),
+          ),
         ],
       ),
     );

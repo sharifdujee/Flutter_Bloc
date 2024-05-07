@@ -1,11 +1,10 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_roadmap/REST_APIs/get_Api/api_screen_two.dart';
 import 'package:flutter_roadmap/model/photos_model.dart';
 import 'package:http/http.dart' as http;
 
-import 'api_screen_two.dart';
+
 
 class ApiScreenOne extends StatefulWidget {
   const ApiScreenOne({super.key});

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "616646529186",
-    "project_id": "chat-application-be9cf",
-    "storage_bucket": "chat-application-be9cf.appspot.com"
+    "project_number": "1048562801523",
+    "project_id": "flutter-roadmap-d5df1",
+    "storage_bucket": "flutter-roadmap-d5df1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:616646529186:android:c2fff0d60817e23fe287fb",
+        "mobilesdk_app_id": "1:1048562801523:android:2966db1a1321baf421c306",
         "android_client_info": {
           "package_name": "com.example.flutter_roadmap"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBOc8dvOUeZ1j_OT-15DAa2wJq_KvvzWTY"
+          "current_key": "AIzaSyDbU60mQg7IobbLEq3xaMNWWqaYQm4ICVQ"
         }
       ],
       "services": {
