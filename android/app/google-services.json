@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1048562801523:android:2966db1a1321baf421c306",
+        "mobilesdk_app_id": "1:1048562801523:android:9d87a37af4efbbca21c306",
         "android_client_info": {
           "package_name": "com.example.flutter_roadmap"
         }

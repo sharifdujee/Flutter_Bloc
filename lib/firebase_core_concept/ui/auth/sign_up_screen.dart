@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_roadmap/firebase_core_concept/ui/auth/login_screen.dart';
+import 'package:flutter_roadmap/firebase_core_concept/utils/utils.dart';
 import 'package:flutter_roadmap/firebase_core_concept/widgets/round_button.dart';
 
 class FireBaseSignUpScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _FireBaseSignUpScreenState extends State<FireBaseSignUpScreen> {
   final _formField = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  bool loading = false;
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
@@ -23,6 +24,23 @@ class _FireBaseSignUpScreenState extends State<FireBaseSignUpScreen> {
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
+  }
+
+  void signup(){
+    setState(() {
+      loading = true;
+    });
+    _auth.createUserWithEmailAndPassword(
+        email: emailController.text.toString(),
+        password: passwordController.text.toString()).then((value){
+      setState(() {
+        loading = false;
+      });
+
+    }).onError((error, stackTrace){
+      Utils.toastMessage(error.toString());
+
+    });
   }
 
   @override
@@ -98,15 +116,11 @@ class _FireBaseSignUpScreenState extends State<FireBaseSignUpScreen> {
             ),
             RoundButton(
               title: 'Signup',
+              loading: loading,
               onTap: () {
                 if (_formField.currentState!.validate()) {
-                  _auth.createUserWithEmailAndPassword(
-                      email: emailController.text.toString(),
-                      password: passwordController.text.toString()).then((value){
 
-                  }).onError((error, stackTrace){
-
-                  });
+                 signup();
                 }
               },
             ),
